@@ -1,7 +1,7 @@
 source :rubygems
 gemspec
 
-group :test
+group :test do
   gem "rake"
   gem "rspec"
   gem "mocha"
