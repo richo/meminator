@@ -1,6 +1,0 @@
-#!/usr/local/bin/ruby19
-
-require 'meme'
-
-Meme.run ARGV
-
