@@ -1,12 +1,8 @@
 module Meminator
   class List; class << self
 
-    def initialize
-      generate_meme_list
-    end
-
     def memes
-      @memes ||= Hash.new
+      @memes ||= generate_meme_list
     end
 
     def get(name)
@@ -17,6 +13,7 @@ module Meminator
     end
 
     def generate_meme_list
+      @tmp_meme_list = Hash.new
       advice_dog 'ANTEATER',           41191,   'anteater'
       advice_dog 'A_DODSON',           106375,  'Antoine-Dodson'
       advice_dog 'A_DOG',              940,     'Advice-Dog'
@@ -70,13 +67,14 @@ module Meminator
       advice_dog 'XZIBIT',             3114,    'XZIBIT'
       advice_dog 'Y_U_NO',             165241,  'Y-U-NO', 'Y U NO'
       advice_dog 'YODA',               963,     'Advice-Yoda-Gives'
+      @tmp_meme_list
     end
 
     def advice_dog(name, id, template_name, first_line = nil)
       template = [id, 'AdviceDogSpinoff', template_name, first_line]
       template.compact
 
-      memes[name] = template
+      @tmp_meme_list[name] = template
     end
 
   end; end
