@@ -8,6 +8,7 @@ require 'cgi'
 module Meminator
   VERSION = '0.0.1'
   GENERATOR_URL = 'http://memegenerator.net/Instance/CreateOrEdit'
+  class Error < Exception; end
   class Meminator
 
     def get_url(meme, *text)
@@ -23,16 +24,24 @@ module Meminator
          post_data.merge! "text#{idx}" => item
       end
 
-      return fetch(url, post_data)
+      begin
+        return fetch(url, post_data)
+      rescue Error => e
+        return e.message
+      end
     end
 
-    def fetch(url, data)
+    def fetch(url, post_data)
       Net::HTTP.start url.host do |http|
         post = Net::HTTP::Post.new url.path
         post['User-Agent'] = ::Meminator.user_agent
         post.set_form_data post_data
 
         res = http.request post
+
+        unless  Net::HTTPSuccess === res
+          raise Error, "memegenerator.net appears to be down, got #{res.code}"
+        end
 
         location = res['Location']
         redirect = url + location
@@ -43,7 +52,7 @@ module Meminator
         res = http.request get
       end
 
-      if Net::HTTPSuccess === res then
+      if Net::HTTPSuccess === res
         doc = Nokogiri.HTML res.body
         doc.css("a[href=\"#{location}\"] img").first['src']
       else
