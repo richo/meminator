@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "meminator"
-  s.version     = "0.0.0"
+  s.version     = "0.0.1"
   s.authors     = ["Eric Hodel", "Rich Healey"]
   s.email       = ["richo@psych0tik.net"]
   s.homepage    = "http://github.com/richoH/meminator"
