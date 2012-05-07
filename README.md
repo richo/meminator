@@ -1,56 +1,25 @@
-NOTE:
+# Meminator
 
-To ease the addition of new memes, use this handy bookmarklet:
+A quick hack based on https://github.com/drbrain/meme
 
-http://bookmarklets.heroku.com/bookmarklets/1814
+# API
 
-= meme_generator
+Is crude but usable. It was written almost entirely for jamming into
+ [Agent99](https://github.com/99designs/agent99) and so it does some really
+stupid things that it shouldn't. I intend to fix them at some point.
 
-* http://github.com/drbrain/meme
-* http://docs.seattlerb.org/meme_generator
+# Examples
 
-== DESCRIPTION:
+```ruby
 
-Generate meme images using http://memegenerator.net!  Save yourself some time!
+meme_generator = Meminator::Meminator.new
+meme_generator.get_url("I_WOLF", "Patient stubbed toe", "Put him down") # => returns a url for the new meme
 
-== FEATURES/PROBLEMS:
+```
 
-* Features many popular meme pictures
-* No tests
+It's worth noting that at time of writing, memegenerator.net was offline so I
+couldn't even integration test
 
-== SYNOPSIS:
 
-Generate a Y U NO meme:
 
-  $ meme Y_U_NO 'write tests?'
-
-Generate a Y U NO meme url only, no clipboard or pulling of the image data:
-
-  $ meme --text Y_U_NO 'write tests?'
-
-See a list of available generators
-
-  $ meme --list
-
-You can also drive it like an API.
-
-== REQUIREMENTS:
-
-* nokogiri
-* internet connection
-
-== INSTALL:
-
-  gem install meme_generator
-
-== DEVELOPERS:
-
-After checking out the source, run:
-
-  $ rake newb
-
-This task will install any missing dependencies, run the tests/specs,
-and generate the RDoc.
-
-== LICENSE:
 
