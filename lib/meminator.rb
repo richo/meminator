@@ -1,5 +1,4 @@
 require 'net/http'
-require 'rubygems'
 require 'nokogiri'
 require 'cgi'
 
@@ -16,12 +15,12 @@ class Meme
   ##
   # Every meme generator needs a version
 
-  VERSION = '1.10'
+  VERSION = '0.0.1'
 
   ##
   # For statistics!
 
-  USER_AGENT = "meme/#{VERSION} Ruby/#{RUBY_VERSION}"
+  USER_AGENT = "meminator/#{VERSION} Ruby/#{RUBY_VERSION}"
 
   ##
   # We have some generators up-in-here
