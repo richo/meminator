@@ -8,7 +8,7 @@ module Meminator
     def get(name)
       return memes[name] if memes.has_key?(name)
       matcher = Regexp.new(name, Regexp::IGNORECASE)
-      _, generator = find { |k,v| matcher =~ k || v.grep(matcher).any? }
+      _, generator = @memes.find { |k,v| matcher =~ k || v.grep(matcher).any? }
       generator
     end
 
