@@ -14,6 +14,10 @@ module Meminator
     def get_url(meme, *text)
       template_id, template_type, generator_name, default_line = List.get(meme)
 
+      unless template_id
+        return "Couldn't find template #{meme}"
+      end
+
       url = URI.parse(GENERATOR_URL)
 
       post_data = { 'templateType'  => template_type,
