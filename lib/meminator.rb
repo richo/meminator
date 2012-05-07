@@ -7,14 +7,13 @@ require 'cgi'
 
 module Meminator
   VERSION = '0.0.1'
+  GENERATOR_URL = 'http://memegenerator.net/Instance/CreateOrEdit'
   class Meminator
 
     def get_url(meme, *text)
-      template_id, template_type, generator_name, default_line = List.get(generator)
+      template_id, template_type, generator_name, default_line = List.get(meme)
 
-      url = URI.parse 'http://memegenerator.net/Instance/CreateOrEdit'
-      res = nil
-      location = nil
+      url = URI.parse(GENERATOR_URL)
 
       post_data = { 'templateType'  => template_type,
                     'templateID'    => template_id,
@@ -24,9 +23,13 @@ module Meminator
          post_data.merge! "text#{idx}" => item
       end
 
+      return fetch(url, post_data)
+    end
+
+    def fetch(url, data)
       Net::HTTP.start url.host do |http|
         post = Net::HTTP::Post.new url.path
-        post['User-Agent'] = USER_AGENT
+        post['User-Agent'] = ::Meminator.user_agent
         post.set_form_data post_data
 
         res = http.request post
