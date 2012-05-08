@@ -54,7 +54,7 @@ module Meminator
         ret = JSON.load(res.body)
 
         if ret["success"]
-          return "#{DISPLAY_URL}#{ret["result"]["instanceImageUrl"]}"
+          return "#{DISPLAY_URL}/instances/400x/#{ret["result"]["instanceID"]}.jpg"
         end
       end
     end
