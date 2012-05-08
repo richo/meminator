@@ -34,7 +34,7 @@ module Meminator
       advice_dog 'G_GRANDPA',          185650,  'Grumpy-Grandpa'
       advice_dog 'H_MERMAID',          405224,  'Hipster-Mermaid'
       advice_dog 'I_DONT_ALWAYS',      38926,   'The-Most-Interesting-Man-in-the-World'
-      advice_dog 'I_WOLF',             926,     'Insanity-Wolf'
+      advice_dog 'I_WOLF',             45,     'Insanity-Wolf'
       advice_dog 'JESUS',              1281,    'jesus-says'
       advice_dog 'J_DUCREUX',          1356,    'Joseph-Ducreux'
       advice_dog 'KANYE',              622033,  'kanyee'

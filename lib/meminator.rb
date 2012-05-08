@@ -1,13 +1,14 @@
 require 'net/http'
-require 'nokogiri'
 require 'cgi'
+require 'json'
 
 ##
 # Generate memes using http://memegenerator.net
 
 module Meminator
   VERSION = '0.0.1'
-  GENERATOR_URL = 'http://memegenerator.net/Instance/CreateOrEdit'
+  GENERATOR_URL = 'http://version1.api.memegenerator.net/Instance_Create'
+  DISPLAY_URL = 'http://cdn.memegenerator.net'
   class Error < Exception; end
   class Meminator
 
@@ -20,47 +21,41 @@ module Meminator
 
       url = URI.parse(GENERATOR_URL)
 
-      post_data = { 'templateType'  => template_type,
-                    'templateID'    => template_id,
-                    'generatorName' => generator_name }
+      params = { 'username'      => ::Meminator.username,
+                 'password'      => ::Meminator.password,
+                 'templateType'  => template_type,
+                 'generatorID'   => template_id,
+                 'imageID'       => 20, # TODO infer from generatorID
+                 'generatorName' => generator_name }
 
       [default_line, *text].compact.each_with_index do |item, idx|
-         post_data.merge! "text#{idx}" => item
+         params.merge! "text#{idx}" => item
       end
 
       begin
-        return fetch(url, post_data)
+        return fetch(url, params)
       rescue Error => e
         return e.message
       end
     end
 
-    def fetch(url, post_data)
+    def fetch(url, params)
+      params = params.collect { |k,v| "#{k}=#{CGI::escape(v.to_s)}" }.join('&')
       Net::HTTP.start url.host do |http|
-        post = Net::HTTP::Post.new url.path
-        post['User-Agent'] = ::Meminator.user_agent
-        post.set_form_data post_data
+        get = Net::HTTP::Get.new url.path + "?#{params}"
+        get['User-Agent'] = ::Meminator.user_agent
 
-        res = http.request post
+        res = http.request get
 
         unless  Net::HTTPSuccess === res
           raise Error, "memegenerator.net appears to be down, got #{res.code}"
         end
 
-        location = res['Location']
-        redirect = url + location
+        ret = JSON.load(res.body)
 
-        get = Net::HTTP::Get.new redirect.request_uri
-        get['User-Agent'] = ::Meminator.user_agent
-
-        res = http.request get
-      end
-
-      if Net::HTTPSuccess === res
-        doc = Nokogiri.HTML res.body
-        doc.css("a[href=\"#{location}\"] img").first['src']
-      else
-        raise Error, "memegenerator.net appears to be down, got #{res.code}"
+        if ret["success"]
+          return "#{DISPLAY_URL}#{ret["result"]["instanceImageUrl"]}"
+        end
       end
     end
 
