@@ -6,7 +6,7 @@ require 'json'
 # Generate memes using http://memegenerator.net
 
 module Meminator
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
   GENERATOR_URL = 'http://version1.api.memegenerator.net/Instance_Create'
   DISPLAY_URL = 'http://cdn.memegenerator.net'
   class Error < Exception; end
