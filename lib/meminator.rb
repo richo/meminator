@@ -67,6 +67,6 @@ module Meminator
   end
 end
 
-%w[list user_agent].each do |filename|
+%w[list user_agent auth].each do |filename|
   require "meminator/#{filename}"
 end
