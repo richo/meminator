@@ -14,59 +14,31 @@ module Meminator
 
     def generate_meme_list
       @tmp_meme_list = Hash.new
-      advice_dog 'ANTEATER',           41191,   'anteater'
-      advice_dog 'A_DODSON',           106375,  'Antoine-Dodson'
-      advice_dog 'A_DOG',              940,     'Advice-Dog'
-      advice_dog 'A_FATHER',           1436,    'High-Expectations-Asian-Father'
-      advice_dog 'ARNOLD',             1236,    'Angry-Arnold'
-      advice_dog 'BEAR-GRYLLS',        89714,   'Bear-Grylls'
-      advice_dog 'BUTTHURT_DWELLER',   1438,    'Butthurt-Dweller'
-      advice_dog 'B_FROG',             1211,    'Foul-Bachelorette-Frog'
-      advice_dog 'B_FROG2',            1045,    'Foul-Bachelor-Frog'
-      advice_dog 'BEIBER',             11809,   'Justin-Beiber'
-      advice_dog 'CATHY',              622381,  'AckCathy'
-      advice_dog 'CHALLENGE_ACCEPTED', 275025,  'Challenge-Accepted'
-      advice_dog 'COOL_STORY_HOUSE',   16948,   'cool-story-bro-house'
-      advice_dog 'CREEPER',            173501,  'Minecraft-Creeper'
-      advice_dog 'C_WOLF',             931,     'Courage-Wolf'
-      advice_dog 'C_LEMUR',            1227,    'Chill-Out-Lemur'
-      advice_dog 'F_FRY',              84688,   'Futurama-Fry'
-      advice_dog 'G_GRANDPA',          185650,  'Grumpy-Grandpa'
-      advice_dog 'H_MERMAID',          405224,  'Hipster-Mermaid'
-      advice_dog 'I_DONT_ALWAYS',      38926,   'The-Most-Interesting-Man-in-the-World'
-      advice_dog 'I_WOLF',             45,     'Insanity-Wolf'
-      advice_dog 'JESUS',              1281,    'jesus-says'
-      advice_dog 'J_DUCREUX',          1356,    'Joseph-Ducreux'
-      advice_dog 'KANYE',              622033,  'kanyee'
-      advice_dog 'KEANU',              47718,   'Keanu-reeves'
-      advice_dog 'KJI',                5840,    'Kim-Jong-IL'
-      advice_dog 'MILHOUSE',           228797,  'Millhouse'
-      advice_dog 'MINECRAFT',          122309,  'Minecraft'
-      advice_dog 'MORE_BEAR',          33675,   'More-Bear'
-      advice_dog 'O-RLY-OWL',          117041,  'O-RLY-OWL', 'ORLY???'
-      advice_dog 'OBAMA',              1332,    'Obama-'
-      advice_dog 'PHILOSORAPTOR',      984,     'Philosoraptor'
-      advice_dog 'P_OAK',              24321,   'Professor-Oak'
-      advice_dog 'P_OBAMA',            45557,   'Pissed-off-Obama'
-      advice_dog 'R_BLACK',            547955,  'Rebecca-Black-Meme'
-      advice_dog 'REDSHIRT',           239371,  'red-shirt-guy'
-      advice_dog 'SCUMBAG',            364688,  'Scumbag-Steve'
-      advice_dog 'SERIOUS_FISH',       7054219, 'Serious-fish-spongebob'
-      advice_dog 'SHEEN',              488762,  'Charlie-Sheen'
-      advice_dog 'SNOB',               2994,    'Snob'
-      advice_dog 'SPARTA',             1013,    'sparta'
-      advice_dog 'SPIDERMAN',          1037,    'Question-Spiderman'
-      advice_dog 'SPILLMAN',           622133,  'Sassy-Spillman'
-      advice_dog 'SWEDISH_CHEF',       186651,  'Swedish-Chef'
-      advice_dog 'S_AWKWARD_PENGUIN',  983,     'Socially-Awkward-Penguin'
-      advice_dog 'TOWNCRIER',          434537,  'Towncrier'
-      advice_dog 'TROLLFACE',          1030,    'Troll-Face'
-      advice_dog 'UNICORN_BOY',        57022,   'unicorn-boy'
-      advice_dog 'US_POINT',           131083,  'Uncle-Sam-Point', 'I WANT YOU'
-      advice_dog 'V_BABY',             11140,   'Victory-Baby'
-      advice_dog 'XZIBIT',             3114,    'XZIBIT'
-      advice_dog 'Y_U_NO',             165241,  'Y-U-NO', 'Y U NO'
-      advice_dog 'YODA',               963,     'Advice-Yoda-Gives'
+      advice_dog 'I_WOLF',              45,     'Insanity-Wolf'
+      advice_dog "WILLYWONKA",      542616, "willywonka"
+      advice_dog "ONE_DOES_NOT_SIMPLY_A", 689854, "one-does-not-simply-a"
+      advice_dog "FIRST_WORLD_PROBLEMS_II", 340895, "First world Problems II"
+      advice_dog "SCUMBAG_STEVE",       142, "Scumbag Steve"
+      advice_dog "CONSPIRACY_KEANU", 318374, "Conspiracy Keanu"
+      advice_dog "I_DONT_ALWAYS", 76, "I Dont Always"
+      advice_dog "ALL_THE_THINGS", 318065, "All the things"
+      advice_dog "TROLLFACE", 68, "Trollface"
+      advice_dog "ANNOYING_FACEBOOK_GIRL", 839, "Annoying Facebook Girl"
+      advice_dog "YO_DAWG", 79, "Yo Dawg"
+      advice_dog "DISASTER_GIRL", 36240, "Disaster Girl"
+      advice_dog "SLOWPOKE", 526, "Slowpoke"
+      advice_dog "JOSEPH_DUCREUX", 54, "Joseph Ducreux"
+      advice_dog "ADVICE_YODA_GIVES", 629, "Advice Yoda Gives"
+      advice_dog "HIGH_EXPECTATIONS_ASIAN_FATHER", 111, "High Expectations Asian Father"
+      advice_dog "WHYYY???", 191900, "Whyyy???"
+      advice_dog "PLEASEGUY ", 668529, "pleaseguy "
+      advice_dog "PREPARE_YOURSELF", 414926, "Prepare yourself"
+      advice_dog "CHUCK_NORRIS ", 5588, "Chuck Norris "
+      advice_dog "OKAY_GUY", 417, "Okay Guy"
+      advice_dog "BUTTHURT_DWELLER", 31, "Butthurt Dweller"
+      advice_dog "Y_U_SO", 222065, "Y U SO"
+      advice_dog "KOALA_CAN'T_BELIEVE_IT", 469249, "Koala can't believe it"
+      advice_dog "RETARD_GIRL", 269725, "retard girl"
       @tmp_meme_list
     end
 
