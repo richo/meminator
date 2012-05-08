@@ -12,8 +12,13 @@ stupid things that it shouldn't. I intend to fix them at some point.
 
 ```ruby
 
-meme_generator = Meminator::Meminator.new
-meme_generator.get_url("I_WOLF", "Patient stubbed toe", "Put him down") # => returns a url for the new meme
+require 'meminator'
+Meminator.username = 'richo' # USERNAME GOES HERE
+Meminator.password = 'password' # PASSWORD GOES HERE
+
+memer = Meminator::Meminator.new
+
+puts memer.get_url("I_WOLF", "Patient stubbed his toe", "Had to put him down")
 
 ```
 
