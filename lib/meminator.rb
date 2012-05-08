@@ -8,7 +8,6 @@ require 'json'
 module Meminator
   VERSION = '0.0.2'
   GENERATOR_URL = 'http://version1.api.memegenerator.net/Instance_Create'
-  DISPLAY_URL = 'http://cdn.memegenerator.net'
   class Error < Exception; end
   class Meminator
 
@@ -54,7 +53,7 @@ module Meminator
         ret = JSON.load(res.body)
 
         if ret["success"]
-          return "#{DISPLAY_URL}#{ret["result"]["instanceImageUrl"]}"
+          return "#{ret["result"]["instanceImageUrl"]}"
         end
       end
     end
