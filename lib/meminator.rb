@@ -13,7 +13,7 @@ module Meminator
   class Meminator
 
     def get_url(meme, *text)
-      template_id, template_type, generator_name, default_line = List.get(meme)
+      template_id, template_type, generator_name, imageID = List.get(meme)
 
       unless template_id
         return "Couldn't find template #{meme}"
@@ -25,10 +25,10 @@ module Meminator
                  'password'      => ::Meminator.password,
                  'templateType'  => template_type,
                  'generatorID'   => template_id,
-                 'imageID'       => 20, # TODO infer from generatorID
+                 'imageID'       => imageID,
                  'generatorName' => generator_name }
 
-      [default_line, *text].compact.each_with_index do |item, idx|
+      text.compact.each_with_index do |item, idx|
          params.merge! "text#{idx}" => item
       end
 
