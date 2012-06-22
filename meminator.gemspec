@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = "meminator"
-  s.version     = "0.0.7"
-  s.authors     = ["Eric Hodel", "Rich Healey"]
+  s.version     = "0.0.8"
+  s.authors     = ["Eric Hodel", "Rich Healey", "Michael Mifsud"]
   s.email       = ["richo@psych0tik.net"]
   s.homepage    = "http://github.com/richo/meminator"
   s.summary     = "API to retrieve urls for memes"
