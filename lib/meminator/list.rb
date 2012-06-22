@@ -39,6 +39,7 @@ module Meminator
       advice_dog "Y_U_SO", 222065, "Y U SO", 1793205
       advice_dog "KOALA_CAN'T_BELIEVE_IT", 469249, "Koala can't believe it", 2475876
       advice_dog "RETARD_GIRL", 269725, "retard girl", 1857890
+      advice_dog "SUCCESS_KID", 121, "Success-Kid", 1031
       @tmp_meme_list
     end
 
