@@ -33,7 +33,8 @@ module Meminator
       end
 
       begin
-        return fetch(url, params)
+        val = fetch(url, params)
+        return "#{DISPLAY_URL}/instances/400x/#{val["result"]["instanceID"]}.jpg"
       rescue Error => e
         return e.message
       end
@@ -51,11 +52,7 @@ module Meminator
           raise Error, "memegenerator.net appears to be down, got #{res.code}"
         end
 
-        ret = JSON.load(res.body)
-
-        if ret["success"]
-          return "#{DISPLAY_URL}/instances/400x/#{ret["result"]["instanceID"]}.jpg"
-        end
+        JSON.load(res.body)
       end
     end
 
