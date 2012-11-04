@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.summary     = "API to retrieve urls for memes"
   s.description = s.summary
 
+  s.add_development_dependency "rake"
   s.add_development_dependency "mocha"
   s.add_development_dependency "rspec"
 
