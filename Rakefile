@@ -17,7 +17,7 @@ def format_result(res)
 end
 
 def format_display_name(name)
-  name.upcase.gsub(/ /, "_")
+  name.upcase.gsub(/ /, "_").gsub(/['"]/, "")
 end
 
 def extract_imageID(url)
