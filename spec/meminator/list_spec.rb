@@ -7,7 +7,7 @@ describe Meminator::List do
   end
 
   it "Should return a meme on a call to #get" do
-    Meminator::List.get('I_WOLF').should_not be_nil
+    Meminator::List.get('INSANITY_WOLF').should_not be_nil
   end
 
   it "Should return nil for memes that don't exist" do

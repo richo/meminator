@@ -9,9 +9,9 @@ describe Meminator do
 
     meminator.expects(:fetch).with(URI.parse(Meminator::GENERATOR_URL),
       {'username' => 'richo2', 'password' => 'richo3', 'templateType' => 'AdviceDogSpinoff', 'generatorID' => 45, 'imageID' => 20, 'generatorName' => 'Insanity-Wolf', 'text0' => 'First line', 'text1' => 'Second line'}
-    )
+    ).returns({"result" => Hash.new})
 
-    meminator.get_url("I_WOLF", "First line", "Second line")
+    meminator.get_url("INSANITY_WOLF", "First line", "Second line")
 
   end
 
