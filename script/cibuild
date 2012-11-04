@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -xe
+# Make this work on heroku
+export PWD=`pwd`
+if [ -n "$BUNDLE_BIN_PATH" ]; then
+    export GEM_HOME=${BUNDLE_BIN_PATH%/gems*}
+fi
+
+${BUNDLE_BIN_PATH:-bundle} install --no-deployment
+
+bundle exec rake spec
